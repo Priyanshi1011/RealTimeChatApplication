@@ -1,0 +1,25 @@
+<div >
+    <div>
+        <div>
+            <button type='button' data-toggle='collapse'   (click)='toggle()'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <h1 id="title" >{{sender}}</h1>
+            <a role="button" (click)="logout()">LogOut</a>
+        </div>
+        <div class='clearfix'></div>
+        <div  [ngClass]='{ "in": isExpanded }'>
+            <ul>
+                <li *ngFor='let user of Users'>
+                  <a role="button" (click)="chatPage(user.userName,user.id)">
+                    <span class="dot" *ngIf='user.connected'></span><span class="reddot" *ngIf='!user.connected'></span> {{user.userName}}<span *ngIf='user.count' class="num">{{user.count}}+</span>
+                  </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
